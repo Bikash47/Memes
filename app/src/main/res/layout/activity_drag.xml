@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/view_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+
+    <ImageView
+        android:id="@+id/custom_umage"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY" />
+
+    <RelativeLayout
+        android:id="@+id/main_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000">
+
+        <TextView
+            android:id="@+id/funny_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="#0f0"
+            android:text="Funny text here"
+            android:textColor="#000" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/dialog_lyout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:elevation="20dp"
+        android:visibility="visible"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Text" />
+
+
+
+        <SeekBar
+            android:id="@+id/text_size_seek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/edit_text"
+            android:layout_marginTop="26dp"
+            android:max="50"/>
+
+        <TextView
+            android:id="@+id/text_size_seek_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_size_seek"
+            android:layout_centerHorizontal="true"
+            android:text="Size" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ALL CAPITAL"
+            android:layout_below="@+id/text_size_seek_show"/>
+
+        <Switch
+            android:id="@+id/switchs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/text_size_seek_show" />
+        <LinearLayout
+            android:id="@+id/color_choos"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#ff0f"
+            android:layout_below="@+id/switchs"
+            android:clickable="true"
+            android:orientation="horizontal" />
+    </RelativeLayout>
+    <!--<TextView
+        android:id="@+id/"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Funny text here"/>-->
+</RelativeLayout>

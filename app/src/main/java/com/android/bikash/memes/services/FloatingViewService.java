@@ -1,15 +1,20 @@
 package com.android.bikash.memes.services;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
+import android.support.v7.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.bikash.memes.MainActivity;
@@ -19,7 +24,9 @@ public class FloatingViewService extends Service {
 
     private WindowManager mWindowManager;
     private View mFloatingView;
-
+    private LinearLayout dialogLayout;
+    private TextView funnyText;
+    private int value = 0;
     public FloatingViewService() {
     }
 
@@ -47,9 +54,13 @@ public class FloatingViewService extends Service {
         params.x = 0;
         params.y = 100;
 
-        //Add the view to the window
-        mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-        mWindowManager.addView(mFloatingView, params);
+        try {
+            //Add the view to the window
+            mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+            mWindowManager.addView(mFloatingView, params);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //The root element of the collapsed view layout
         final View collapsedView = mFloatingView.findViewById(R.id.collapse_view);
@@ -58,7 +69,15 @@ public class FloatingViewService extends Service {
         final View expandedView = mFloatingView.findViewById(R.id.expanded_container);
 
         expandedView.setVisibility(View.VISIBLE);
-        //Set the close button
+        //Set the close button\
+        dialogLayout = (LinearLayout)mFloatingView.findViewById(R.id.dialog_layout);
+        funnyText = (TextView)mFloatingView.findViewById(R.id.text_click);
+        funnyText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialog();
+            }
+        });
         ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,9 +200,25 @@ public class FloatingViewService extends Service {
         return mFloatingView == null || mFloatingView.findViewById(R.id.collapse_view).getVisibility() == View.VISIBLE;
     }
 
+    void openDialog() {
+        if(value ==0){
+            dialogLayout.setVisibility(View.VISIBLE);
+            value  = 1;
+        }else {
+            dialogLayout.setVisibility(View.GONE);
+            value  = 0;
+        }
+       /* @SuppressLint("RestrictedApi")
+        Dialog dialog = new Dialog(new ContextThemeWrapper(this, R.style.DialogSlideAnim));
+        dialog.setContentView(R.layout.option_dialog);
+        dialog.show();*/
+
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         if (mFloatingView != null) mWindowManager.removeView(mFloatingView);
     }
+
 }

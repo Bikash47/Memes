@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <!--Root container-->
     <RelativeLayout
         android:id="@+id/root_container"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="UselessParent">
 
@@ -25,7 +25,6 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/ic_android_circle"
                 tools:ignore="ContentDescription" />
 
             <!--Close button-->
@@ -34,7 +33,6 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="40dp"
-                android:src="@drawable/ic_close"
                 tools:ignore="ContentDescription" />
         </RelativeLayout>
 
@@ -44,13 +42,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#F8BBD0"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="8dp"
             android:visibility="gone">
             <TextView
+                android:id="@+id/text_click"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Enter Text"/>
+                android:hint="Enter Text"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <!--Album image for the song currently playing.-->
             <ImageView
@@ -91,6 +92,13 @@
                 android:layout_marginLeft="10dp"
                 android:visibility="gone"
                 tools:ignore="ContentDescription" />
+            <LinearLayout
+                android:id="@+id/dialog_layout"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:visibility="gone"
+                android:background="#00f"
+                android:orientation="horizontal" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -110,5 +118,6 @@
                     />
             </RelativeLayout>
         </LinearLayout>
+
     </RelativeLayout>
 </FrameLayout>
