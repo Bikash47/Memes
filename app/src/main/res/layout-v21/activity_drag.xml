@@ -7,6 +7,25 @@
     android:layout_height="match_parent"
     android:background="#fff">
 
+    <RelativeLayout
+        android:id="@+id/add_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rounded"
+        android:elevation="5dp">
+
+        <ImageButton
+            android:id="@+id/add"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/close" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/custom_umage"
@@ -18,17 +37,82 @@
     <RelativeLayout
         android:id="@+id/main_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#000">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/scroll"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:elevation="10dp"
+            android:src="@mipmap/scroll" />
 
         <TextView
             android:id="@+id/funny_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/scroll"
             android:layout_centerInParent="true"
-            android:background="#0f0"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:maxWidth="250dip"
+            android:background="@null"
+            android:singleLine="false"
             android:text="Funny text here"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/main_view_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/scroll_2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:elevation="10dp"
+            android:src="@mipmap/scroll" />
+
+        <TextView
+            android:id="@+id/funny_text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scroll_2"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:maxWidth="250dip"
+            android:singleLine="false"
+            android:text="Cool text"
+            android:textColor="#000"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginRight="5dp"
+        android:id="@+id/next_set"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:elevation="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:background="@drawable/rounded">
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/next"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/all_set"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -38,15 +122,33 @@
         android:layout_alignParentBottom="true"
         android:background="#fff"
         android:elevation="20dp"
-        android:visibility="visible"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/close_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/rounded"
+            android:elevation="5dp">
+
+            <ImageButton
+                android:id="@+id/close"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/close" />
+        </RelativeLayout>
+
 
         <EditText
             android:id="@+id/edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/close_view"
             android:hint="Your Text" />
-
 
 
         <SeekBar
@@ -56,7 +158,7 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/edit_text"
             android:layout_marginTop="26dp"
-            android:max="50"/>
+            android:max="50" />
 
         <TextView
             android:id="@+id/text_size_seek_show"
@@ -65,11 +167,12 @@
             android:layout_below="@+id/text_size_seek"
             android:layout_centerHorizontal="true"
             android:text="Size" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ALL CAPITAL"
-            android:layout_below="@+id/text_size_seek_show"/>
+            android:layout_below="@+id/text_size_seek_show"
+            android:text="ALL CAPITAL" />
 
         <Switch
             android:id="@+id/switchs"
@@ -77,14 +180,41 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/text_size_seek_show" />
+
         <LinearLayout
             android:id="@+id/color_choos"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:background="@mipmap/back_images"
             android:layout_below="@+id/switchs"
+            android:background="@mipmap/back_images"
             android:clickable="true"
-            android:orientation="horizontal" />
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Color"
+                android:textColor="#fff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/color_back_choos"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@+id/color_choos"
+            android:layout_marginTop="8dp"
+            android:background="@mipmap/back_images"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Background Color"
+                android:textColor="#fff" />
+        </LinearLayout>
     </RelativeLayout>
     <!--<TextView
         android:id="@+id/"
@@ -92,4 +222,5 @@
         android:layout_height="wrap_content"
         android:textColor="#fff"
         android:text="Funny text here"/>-->
+
 </RelativeLayout>

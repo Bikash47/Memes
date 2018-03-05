@@ -4,6 +4,10 @@
     package="com.android.bikash.memes">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission
         android:name="android.permission.INTERNAL_SYSTEM_WINDOW"
         tools:ignore="ProtectedPermissions" />
@@ -28,7 +32,8 @@
             android:enabled="true"
             android:exported="false" />
 
-        <!--<activity android:name=".DragActivity"></activity>-->
+        <!-- <activity android:name=".DragActivity"></activity> -->
+        <activity android:name=".ShareActivity"></activity>
     </application>
 
 </manifest>
